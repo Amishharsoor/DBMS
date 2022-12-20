@@ -25,3 +25,14 @@ insert into catalog values
 (10002, 20002, 20),
 (10003, 20003, 30),
 (10004, 20003, 40);
+
+-- query 3
+select distinct pname from parts p, catalog c where p.pid=c.pid; 
+
+-- query 4
+select sname from supplier where sid in
+(select sid from catalog c group by sid having count(sid)=(select count(pid) from parts));
+
+-- query 5
+select sname from supplier where sid in
+(select sid from catalog where pid in(select pid from parts where color='Red'));
