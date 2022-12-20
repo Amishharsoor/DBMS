@@ -1,0 +1,8 @@
+create database week7; 
+use week7;
+
+create table supplier(sid int, sname varchar(50), city varchar(50), primary key(sid));
+
+create table parts(pid int, pname varchar(50), color varchar(20), primary key(pid));
+
+create table catalog(sid int, pid int, cost float, foreign key(sid) references supplier(sid), foreign key(pid) references parts(pid));
