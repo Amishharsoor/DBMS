@@ -2,7 +2,26 @@ create database week7;
 use week7;
 
 create table supplier(sid int, sname varchar(50), city varchar(50), primary key(sid));
+insert into supplier values(10001,'Acme Widget','Bangalore');
+insert into supplier values(10002,'Johns','Kolkata');
+insert into supplier values(10003,'Vimal','Mumbai');
+insert into supplier values(10004,'Reliance','Delhi');
 
 create table parts(pid int, pname varchar(50), color varchar(20), primary key(pid));
+insert into parts values(20001,'Book','Red');
+insert into parts values(20002,'Pen','Red');
+insert into parts values(20003,'Pencil','Green');
+insert into parts values(20004,'Mobile','Green');
+insert into parts values(20005,'Charger','Black');
 
 create table catalog(sid int, pid int, cost float, foreign key(sid) references supplier(sid), foreign key(pid) references parts(pid));
+insert into catalog values
+(10001, 20001, 10),
+(10001, 20002, 10),
+(10001, 20003, 30),
+(10001, 20004, 10),
+(10001, 20005, 10),
+(10002, 20001, 10),
+(10002, 20002, 20),
+(10003, 20003, 30),
+(10004, 20003, 40);
